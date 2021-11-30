@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.16/js/bootstrap-multiselect.js">
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.16/css/bootstrap-multiselect.css" />
+
+    <title>Memory game</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+        }
+        
+        .container {
+            margin: auto;
+        }
+        
+        .content {
+            height: auto;
+            border-radius: 1.5em;
+            padding-top: 0;
+            -webkit-box-shadow: 0px 0px 15px 0px rgb(0 0 0 / 40%);
+            -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.29);
+            box-shadow: 0px 0px 15px 0px rgb(0 0 0 / 29%);
+        }
+        
+        .card-logo {
+            margin: auto;
+            display: block;
+            width: 29%;
+            height: auto;
+        }
+        
+        .button-div {
+            float: right;
+        }
+        
+        .btn-group,
+        .btn-group-vertical {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="row justify-content-center p-3">
+            <div class="col col-lg-5 col-md-6 content p-5">
+                <div>
+
+                    <img class="card-logo" src="images/logo.jpg" />
+                    <br />
+                    <h4>Welcome to memory game</h4>
+                    <small class="form-text text-muted">This is the best game</small>
+                    <br />
+                    <form id="form">
+                        <div class="form-group">
+                            <label>First player</label>
+                            <input type="text" class="form-control" id="first" name="first" placeholder="Enter first" required>
+                            <small class="form-text text-muted text-description">Please insert the first player
+                                name</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Second player</label>
+                            <input type="text" class="form-control" id="second" name="second" placeholder="Enter second" required>
+                            <small class="form-text text-muted text-description">Please insert the second player
+                                name</small>
+                        </div>
+                        <div>
+                            <label for="board">Choose a board size:</label>
+                            <select name="boardSize" id="boardSize">
+                                <option value="board4X4">4X4</option>
+                                <option value="board5X5">5X5</option>
+                            </select>
+
+                            <br><br>
+                        </div>
+                        <div class="button-div">
+                            <input type="submit" class="btn btn-primary btn-sm" style="margin:5px; width: 70px;" name="submit" value="Start" onclick="getValue();" />
+                        </div>
+
+                        <p id="demo"></p>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function getValue() {
+            var selectedValue = document.getElementById("boardSize").value;
+            localStorage.setItem('selecetedValue', JSON.stringify(selectedValue));
+        }
+    </script>
+    <script type="text/javascript" src="function.js">
+    </script>
+
+</body>
+
+</html>
